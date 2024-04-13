@@ -12,10 +12,12 @@ public class CPU {
         userStack=new ByteStack();
         funcStack=new ByteStack();
         pc=new PC();
-        regs=new Register[6];
-        for (int i = 0; i < regs.length; i++) {
+        regs=new Register[8];
+        for (int i = 0; i < 6; i++) {
             regs[i] = new Register();
         }
+        regs[6]=pc;
+        regs[7]=new IOWrapper(io);
         op=Inst.Parameters.op;
         p1=Inst.Parameters.p1;
         p2=Inst.Parameters.p2;
