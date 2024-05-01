@@ -37,3 +37,5 @@ Output: 34
 Output: 55
 Program exited.
 ```
+### game screenshot (final level)：
+![](pic.jpg)
