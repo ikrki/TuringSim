@@ -1,3 +1,4 @@
+package com.ikrki.turingsim.utils;
 public class Cond {
     public enum CondOps {
         je,jne,jl,jle,jg,jge,jmp

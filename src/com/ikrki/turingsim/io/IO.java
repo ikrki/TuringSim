@@ -1,6 +1,7 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package com.ikrki.turingsim.io;
+import com.ikrki.turingsim.Main;
+
+import java.io.*;
 
 public class IO {
     private final byte[] inputs=new byte[256];
@@ -9,7 +10,9 @@ public class IO {
         init(file);
     }
     private void init(String file){
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (InputStream inputStream = Main.class.getResourceAsStream(file);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(" +");
@@ -29,6 +32,6 @@ public class IO {
         return inputs[index++];
     }
     public void setOutput(byte value){
-        System.out.printf("Output: %d", value);
+        System.out.printf("Output: %d\n", value);
     }
 }

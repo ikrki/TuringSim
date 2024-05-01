@@ -1,3 +1,14 @@
+package com.ikrki.turingsim;
+
+import com.ikrki.turingsim.inst.Inst;
+import com.ikrki.turingsim.io.IO;
+import com.ikrki.turingsim.io.IOWrapper;
+import com.ikrki.turingsim.mem.*;
+import com.ikrki.turingsim.reg.PC;
+import com.ikrki.turingsim.reg.Register;
+import com.ikrki.turingsim.utils.ALU;
+import com.ikrki.turingsim.utils.Cond;
+
 public class CPU {
     IO io;
     IMemory ram,program;
@@ -5,9 +16,9 @@ public class CPU {
     PC pc;
     Register[] regs;
     Inst.Parameters op,p1,p2,p3;
-    public CPU(){
-        io=new IO("input/input.turingsim");
-        program=new Program("input/program.turingsim");
+    public CPU(String source,String input){
+        io=new IO("/input/"+input);
+        program=new Program("/programs/"+source);
         ram=new RAM();
         userStack=new ByteStack();
         funcStack=new ByteStack();
@@ -74,9 +85,7 @@ public class CPU {
                             funcStack.push(pc.get());
                             pc.set(inst.asValue(p1));
                     }
-                    case 5 -> {
-                            pc.set(funcStack.pop());
-                    }
+                    case 5 -> pc.set(funcStack.pop());
                 }
             }
         }

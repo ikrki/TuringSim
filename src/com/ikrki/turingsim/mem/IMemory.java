@@ -1,3 +1,4 @@
+package com.ikrki.turingsim.mem;
 public interface IMemory {
     byte[] ram = new byte[256];
     byte load(int addr);

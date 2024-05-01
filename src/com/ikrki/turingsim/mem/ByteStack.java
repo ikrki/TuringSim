@@ -1,3 +1,4 @@
+package com.ikrki.turingsim.mem;
 import java.util.Stack;
 
 public class ByteStack {

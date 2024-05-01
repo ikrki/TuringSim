@@ -1,20 +1,25 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package com.ikrki.turingsim.mem;
+import com.ikrki.turingsim.Main;
+import com.ikrki.turingsim.mem.IMemory;
+import com.ikrki.turingsim.utils.Assembler;
 
-public class Program implements IMemory{
+import java.io.*;
+
+public class Program implements IMemory {
     public Program(String file){
         super();
         init(file);
     }
     private void init(String file){
-        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+        try (InputStream inputStream = Main.class.getResourceAsStream(file);
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            int i=0;
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] tokens = line.split(" +");
-                int i=0;
+
                 for (String token : tokens) {
-                    byte value=Assembler.assemble(token);
+                    byte value= Assembler.assemble(token);
                     ram[i++]=value;
                 }
             }

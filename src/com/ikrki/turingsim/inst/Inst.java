@@ -1,15 +1,26 @@
+package com.ikrki.turingsim.inst;
+
+import com.ikrki.turingsim.mem.IMemory;
+import com.ikrki.turingsim.reg.PC;
+
 public class Inst {
     byte op,p1,p2,p3;
     public enum Parameters{
         op,p1,p2,p3
     }
-    public Inst(IMemory program,PC pc){
+    public Inst(IMemory program, PC pc){
         int addr=pc.get();
         op=program.load(addr);
         p1=program.load(addr+1);
         p2=program.load(addr+2);
         p3=program.load(addr+3);
         pc.next();
+    }
+    public Inst(byte[] inst){
+        op=inst[0];
+        p1=inst[1];
+        p2=inst[2];
+        p3=inst[3];
     }
     public int asIndex(Parameters p){
         return switch (p) {
@@ -21,7 +32,7 @@ public class Inst {
     }
     public byte asValue(Parameters p){
         return switch (p) {
-            case op -> op;
+            case op -> (byte)(op&0b00001111);
             case p1 -> p1;
             case p2 -> p2;
             case p3 -> p3;

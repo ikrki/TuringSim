@@ -1,9 +1,10 @@
+package com.ikrki.turingsim.utils;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Assembler {
     private static final Map<String,Byte> m=new HashMap<>();
-    public Assembler(){
+    static{
         m.put("mov", (byte)0b00011000);
         m.put("movi",(byte)0b10011000);
         m.put("add", (byte)0b00000000);
@@ -46,7 +47,7 @@ public class Assembler {
         m.put("r3",  (byte)0b00000011);
         m.put("r4",  (byte)0b00000100);
         m.put("r5",  (byte)0b00000101);
-        m.put("in",  (byte)0b00000110);
+        m.put("in",  (byte)0b00000111);
         m.put("out", (byte)0b00000111);
         m.put("_",   (byte)0b00000000);
         m.put("exit",(byte)0b11111111);
