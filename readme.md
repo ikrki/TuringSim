@@ -1,12 +1,11 @@
-# TuringSim: A cpu simulator for the game Turing Complete
-___
+# TuringSim: A CPU simulator for the game Turing Complete
 This simulator supports the ISA designed by me in the game
 [Turing Complete](https://store.steampowered.com/app/1444480/Turing_Complete/).
 
 You can use ```label label_name``` and ```const const_name const_value``` 
-to simplify register assignment and jump target definition, just like in the game.
+Just as in the game, simplify register assignment and jump target definition.
 
-Note that Turing Complete uses 4-byte fixed length instructions, so you may use ```_``` as a placeholder.
+Turing Complete uses 4-byte fixed-length instructions so that you may use ```_``` as a placeholder.
 
 ### a fib example:
 ```
