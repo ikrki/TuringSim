@@ -20,7 +20,7 @@ add r0 r1 r2
 mov r1 _ r0
 mov r2 _ r1
 addi r3 1 r3
-jl r3 r2 loop
+jl r3 r4 loop
 exit
 ```
 ### output is as below:
