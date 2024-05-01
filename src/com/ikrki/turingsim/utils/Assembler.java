@@ -66,4 +66,7 @@ public class Assembler {
             }
         }
     }
+    public static void insert(String key,byte value){
+        m.put(key,value);//System.out.println(value);
+    }
 }

@@ -9,7 +9,11 @@ public class IOWrapper extends Register {
         this.io=io;
     }
     @Override
-    public byte get(){byte a=io.getInput();System.out.println(a);return a;}
+    public byte get(){
+        return io.getInput();
+    }
     @Override
-    public void set(byte newValue){io.setOutput(newValue);}
+    public void set(byte newValue){
+        io.setOutput(newValue);
+    }
 }
