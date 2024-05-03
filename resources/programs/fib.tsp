@@ -1,4 +1,4 @@
-const start 1
+const start 0b1
 movi start _ r0
 movi start _ r1
 mov in _ r4

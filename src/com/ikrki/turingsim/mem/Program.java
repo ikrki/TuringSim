@@ -34,7 +34,7 @@ public class Program implements IMemory {
                     }
                     case 3->{
                         if (Objects.equals(tokens[0], "const")){
-                            Assembler.insert(tokens[1],(byte)Integer.parseInt(tokens[2]));
+                            Assembler.insert(tokens[1], Assembler.assemble(tokens[2]));
                         }
                     }
                     case 4->{

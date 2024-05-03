@@ -57,7 +57,16 @@ public class Assembler {
             return m.get(str);
         else {
             try {
-                int number=Integer.parseInt(str);
+                int number;
+                if(str.startsWith("0x")){
+                    number=Integer.parseInt(str.substring(2),16);
+                }
+                else if(str.startsWith("0b")){
+                    number=Integer.parseInt(str.substring(2),2);
+                }
+                else {
+                    number=Integer.parseInt(str);
+                }
                 return (byte)(number);
             } catch (NumberFormatException e) {
                 System.out.println("Illegal assembly code.");
